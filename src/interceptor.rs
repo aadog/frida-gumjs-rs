@@ -3,7 +3,7 @@
 use std::error::Error;
 use std::ptr;
 use std::ptr::{null, null_mut};
-use frida_gumjs_sys::GumReplaceReturn;
+use frida_gumjs_rs_sys::GumReplaceReturn;
 use log::debug;
 use simple_error::bail;
 use crate::NativePointer;

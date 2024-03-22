@@ -10,7 +10,7 @@ use core::{
     fmt::{Debug, Display, LowerHex, UpperHex},
     ops::Range,
 };
-use frida_gumjs_sys::{gpointer, gsize, GumAddress};
+use frida_gumjs_rs_sys::{gpointer, gsize, GumAddress};
 
 
 

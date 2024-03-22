@@ -1,0 +1,17 @@
+[package]
+name = "frida-gumjs-sys"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[build-dependencies]
+cc = "1.0.90"
+bindgen = "0.69.4"
+
+[badges]
+maintenance = { status = "experimental" }
+
+[dependencies]
+log = "0.4.21"

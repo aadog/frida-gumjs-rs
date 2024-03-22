@@ -16,7 +16,7 @@ use {
         ffi::{c_void, CStr},
         marker::PhantomData,
     },
-    frida_gumjs_sys as gumjs_sys,
+    frida_gumjs_rs_sys as gumjs_sys,
 };
 
 #[cfg(not(feature = "module-names"))]

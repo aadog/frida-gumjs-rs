@@ -11,7 +11,7 @@ use std::ops::{Deref, Index};
 use std::os::raw::c_int;
 use std::ptr::{null, null_mut, slice_from_raw_parts, slice_from_raw_parts_mut};
 use cstr_core::c_char;
-use frida_gumjs_sys::{_frida_g_bytes_new, GBytes, GCancellable, gchar, gpointer, gsize, GumScriptBackend, GumScriptMessageHandler, malloc, memset, strcpy, tm, u_long};
+use frida_gumjs_rs_sys::{_frida_g_bytes_new, GBytes, GCancellable, gchar, gpointer, gsize, GumScriptBackend, GumScriptMessageHandler, malloc, memset, strcpy, tm, u_long};
 use simple_error::{bail, SimpleError};
 use log::debug;
 use crate::g_object::GObject;

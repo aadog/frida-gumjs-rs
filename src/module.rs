@@ -1,5 +1,5 @@
 use std::ffi::{c_void, CString};
-use frida_gumjs_sys::{gboolean, gpointer, GumExportDetails, GumSymbolDetails};
+use frida_gumjs_rs_sys::{gboolean, gpointer, GumExportDetails, GumSymbolDetails};
 use crate::NativePointer;
 use crate::range_details::{PageProtection, RangeDetails};
 

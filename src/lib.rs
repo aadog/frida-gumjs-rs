@@ -13,7 +13,7 @@ pub mod interceptor;
 
 use std::ffi::{c_char, c_void, CStr};
 use std::fmt::{Display, Formatter, LowerHex, UpperHex};
-use frida_gumjs_sys::{gum_deinit_embedded, gum_init_embedded};
+use frida_gumjs_rs_sys::{gum_deinit_embedded, gum_init_embedded};
 use crate::error::Error;
 
 
