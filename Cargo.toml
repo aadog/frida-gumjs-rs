@@ -1,0 +1,17 @@
+[package]
+name = "frida-gumjs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cstr_core = { version = "0.2.6", default-features = false, features = ["alloc"]}
+frida-gumjs-sys={path = "./frida-gumjs-rust-sys"}
+num = { version = "0.4.1", default-features = false }
+num-derive = { version = "0.4.2", default-features = false }
+num-traits = { version = "0.2.18", default-features = false }
+paste = { version = "1.0.14", default-features = false }
+libc = { version = "0.2.153", default-features = false, optional = true }
+simple-error = "0.3.0"
+log = "0.4.21"
