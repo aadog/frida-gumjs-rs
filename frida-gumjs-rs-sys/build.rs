@@ -14,7 +14,7 @@ fn main() {
     // println!("cargo:rustc-link-lib=cliborc_rt-aarch64-android");
     // println!("cargo:rustc-link-lib=pthread");
     println!("cargo:rustc-link-lib=frida-gumjs");
-    println!("cargo:rustc-cdylib-link-arg=-s");
+    // println!("cargo:rustc-cdylib-link-arg=-s");
     // println!("cargo:rustc-cdylib-link-arg=-ffunction-sections");
     // println!("cargo:rustc-cdylib-link-arg=-fdata-sections");
     // println!("cargo:rustc-cdylib-link-arg=-pthread");
@@ -22,17 +22,17 @@ fn main() {
     // println!("cargo:rustc-cdylib-link-arg=-ffunction-sections -fdata-sections -pthread -Wl,-z,relro,-z,noexecstack,--gc-sections");
 
 
-    let sys_root:String=env::var("SYSROOT").unwrap_or(String::from("/"));
+    // let sys_root:String=env::var("SYSROOT").unwrap_or(String::from("/"));
     let target:String=env::var("TARGET").unwrap_or(String::from(""));
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
     // the resulting bindings.
-    let mut builder=bindgen::Builder::default().use_core();
-    println!("sysroot:{}",sys_root);
-    if sys_root!=""{
-        builder=builder.clang_arg(format!("--sysroot={}",sys_root)).clang_arg(format!("--target={}",target))
-    }
+    let builder=bindgen::Builder::default().use_core();
+    // println!("sysroot:{}",sys_root);
+    // if sys_root!=""{
+    //     builder=builder.clang_arg(format!("--sysroot={}",sys_root)).clang_arg(format!("--target={}",target))
+    // }
     println!("target:{}",target);
     let bindings = builder.header("wrapper.h")
         // Tell cargo to invalidate the built crate whenever any of the
@@ -50,7 +50,8 @@ fn main() {
         .expect("Unable to generate bindings");
 
     // Write the bindings to the $OUT_DIR/bindings.rs file.
-    let out_path = PathBuf::from(format!("{}\\src",env::var("CARGO_MANIFEST_DIR").unwrap()));
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+    println!("{}",out_path.to_str().unwrap());
     bindings
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");

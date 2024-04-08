@@ -3,7 +3,8 @@ use frida_gumjs_rs_sys::{gboolean, gpointer, GumExportDetails, GumSymbolDetails}
 use crate::NativePointer;
 use crate::range_details::{PageProtection, RangeDetails};
 
-/// Module details returned by [`Module::enumerate_modules`].
+
+#[derive(Debug)]/// Module details returned by [`Module::enumerate_modules`].
 pub struct ModuleDetailsOwned {
     pub name: String,
     pub path: String,
@@ -25,7 +26,7 @@ pub struct SymbolDetails {
 }
 
 extern "C" fn enumerate_ranges_callout(
-    range_details: *const frida_gumjs_sys::_GumRangeDetails,
+    range_details: *const frida_gumjs_rs_sys::_GumRangeDetails,
     user_data: *mut c_void,
 ) -> gboolean {
     let mut f = unsafe { Box::from_raw(user_data as *mut Box<dyn FnMut(RangeDetails) -> bool>) };
@@ -42,7 +43,7 @@ impl ModuleDetailsOwned{
         let module_name = CString::new(self.name.as_str()).unwrap();
         let symbol_name = CString::new(symbol_name).unwrap();
         let ptr = unsafe{
-            frida_gumjs_sys::gum_module_find_export_by_name(
+            frida_gumjs_rs_sys::gum_module_find_export_by_name(
                 module_name.as_ptr().cast(),
                 symbol_name.as_ptr().cast(),
             )
@@ -59,7 +60,7 @@ impl ModuleDetailsOwned{
         let symbol_name = CString::new(symbol_name).unwrap();
         let module_name = CString::new(self.name.as_str()).unwrap();
         let ptr = unsafe {
-            frida_gumjs_sys::gum_module_find_symbol_by_name(
+            frida_gumjs_rs_sys::gum_module_find_symbol_by_name(
                 module_name.as_ptr().cast(),
                 symbol_name.as_ptr().cast(),
             )
@@ -94,7 +95,7 @@ impl ModuleDetailsOwned{
 
 
         unsafe {
-            frida_gumjs_sys::gum_module_enumerate_exports(
+            frida_gumjs_rs_sys::gum_module_enumerate_exports(
                 self.name.as_ptr().cast(),
                 Some(callback),
                 &result as *const _ as *mut c_void,
@@ -130,7 +131,7 @@ impl ModuleDetailsOwned{
 
 
         unsafe {
-            frida_gumjs_sys::gum_module_enumerate_symbols(
+            frida_gumjs_rs_sys::gum_module_enumerate_symbols(
                 self.name.as_ptr().cast(),
                 Some(callback),
                 &result as *const _ as *mut c_void,
@@ -149,7 +150,7 @@ impl ModuleDetailsOwned{
                 Box::new(callout) as Box<dyn FnMut(RangeDetails) -> bool>
             )) as *mut _ as *mut c_void;
 
-            frida_gumjs_sys::gum_module_enumerate_ranges(
+            frida_gumjs_rs_sys::gum_module_enumerate_ranges(
                 self.name.as_ptr().cast(),
                 prot as u32,
                 Some(enumerate_ranges_callout),

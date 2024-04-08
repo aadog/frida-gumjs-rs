@@ -4,7 +4,7 @@
  * Licence: wxWindows Library Licence, Version 3.1
  */
 
-use {crate::NativePointer, core::ffi::c_void, cstr_core::CString, frida_gumjs_sys as gumjs_sys};
+use {crate::NativePointer, core::ffi::c_void, cstr_core::CString, frida_gumjs_rs_sys as gumjs_sys};
 
 use core::{
     fmt::{Debug, Display, LowerHex, UpperHex},

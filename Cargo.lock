@@ -111,11 +111,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "frida-gumjs"
+name = "frida-gumjs-rs"
 version = "0.1.0"
 dependencies = [
  "cstr_core",
- "frida-gumjs-sys",
+ "frida-gumjs-rs-sys",
  "libc",
  "log",
  "num",
@@ -126,7 +126,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "frida-gumjs-sys"
+name = "frida-gumjs-rs-sys"
 version = "0.1.0"
 dependencies = [
  "bindgen",

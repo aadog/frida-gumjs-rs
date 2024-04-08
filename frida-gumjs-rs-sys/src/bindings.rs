@@ -578,7 +578,6 @@ pub const G_PDP_ENDIAN: u32 = 3412;
 pub const G_IEEE754_FLOAT_BIAS: u32 = 127;
 pub const G_IEEE754_DOUBLE_BIAS: u32 = 1023;
 pub const G_LOG_2_BASE_10: f64 = 0.3010299956639812;
-pub const __GNUC_VA_LIST: u32 = 1;
 pub const WNOHANG: u32 = 1;
 pub const WUNTRACED: u32 = 2;
 pub const WSTOPPED: u32 = 2;
@@ -1221,9 +1220,9 @@ pub const GUM_API_SIZE_NONE: i32 = -1;
 pub const GUM_DARWIN_PORT_NULL: u32 = 0;
 pub const GUM_DARWIN_EXPORT_KIND_MASK: u32 = 3;
 pub const _JBLEN: u32 = 32;
+pub const __bool_true_false_are_defined: u32 = 1;
 pub const true_: u32 = 1;
 pub const false_: u32 = 0;
-pub const __bool_true_false_are_defined: u32 = 1;
 pub const __PRI_64_prefix: &[u8; 2] = b"l\0";
 pub const __PRI_PTR_prefix: &[u8; 2] = b"l\0";
 pub const __PRI_FAST_prefix: &[u8; 2] = b"l\0";
@@ -3356,8 +3355,8 @@ extern "C" {
 extern "C" {
     pub fn _frida_g_atomic_int_exchange_and_add(atomic: *mut gint, val: gint) -> gint;
 }
-pub type va_list = [u64; 4usize];
 pub type __gnuc_va_list = [u64; 4usize];
+pub type va_list = [u64; 4usize];
 pub type GQuark = guint32;
 extern "C" {
     pub fn _frida_g_quark_try_string(string: *const gchar) -> GQuark;

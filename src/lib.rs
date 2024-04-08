@@ -10,6 +10,7 @@ pub mod memory_range;
 pub mod script;
 pub mod g_object;
 pub mod interceptor;
+pub use frida_gumjs_rs_sys;
 
 use std::ffi::{c_char, c_void, CStr};
 use std::fmt::{Display, Formatter, LowerHex, UpperHex};
@@ -24,18 +25,18 @@ pub fn init_embedded(){
 pub fn deinit_embedded(){
     unsafe{gum_deinit_embedded()};
 }
-pub fn g_main_context_get_thread_default()->*mut frida_gumjs_sys::GMainContext{
-    unsafe{frida_gumjs_sys::_frida_g_main_context_default()}
+pub fn g_main_context_get_thread_default()->*mut frida_gumjs_rs_sys::GMainContext{
+    unsafe{frida_gumjs_rs_sys::_frida_g_main_context_default()}
 }
-pub fn g_main_context_pending(context: *mut frida_gumjs_sys::GMainContext)->bool{
-    unsafe{frida_gumjs_sys::_frida_g_main_context_pending(context)!=0}
+pub fn g_main_context_pending(context: *mut frida_gumjs_rs_sys::GMainContext)->bool{
+    unsafe{frida_gumjs_rs_sys::_frida_g_main_context_pending(context)!=0}
 }
-pub fn g_main_context_iteration(context: *mut frida_gumjs_sys::GMainContext,may_block:bool)->bool{
+pub fn g_main_context_iteration(context: *mut frida_gumjs_rs_sys::GMainContext,may_block:bool)->bool{
     let mut bk =0;
     if may_block{
         bk=1;
     }
-    unsafe{frida_gumjs_sys::_frida_g_main_context_iteration(context,bk)!=0}
+    unsafe{frida_gumjs_rs_sys::_frida_g_main_context_iteration(context,bk)!=0}
 }
 
 
