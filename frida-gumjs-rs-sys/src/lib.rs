@@ -10,7 +10,12 @@ extern crate alloc;
 
 use alloc::vec::Vec;
 use log::debug;
-
+#[cfg(any(target_arch = "aarch64",target_arch = "x86_64"))]
+pub mod bindings{
+    include!("bindings64.rs");
+    //include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+}
+#[cfg(any(target_arch = "arm",target_arch = "x86"))]
 pub mod bindings{
     include!("bindings.rs");
     //include!(concat!(env!("OUT_DIR"), "/bindings.rs"));

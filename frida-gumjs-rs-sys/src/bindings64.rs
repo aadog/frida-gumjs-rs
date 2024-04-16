@@ -84,7 +84,7 @@ pub const G_ANALYZER_ANALYZING: u32 = 0;
 pub const FALSE: u32 = 0;
 pub const G_HAVE_GNUC_VISIBILITY: u32 = 1;
 pub const __BIONIC__: u32 = 1;
-pub const __WORDSIZE: u32 = 32;
+pub const __WORDSIZE: u32 = 64;
 pub const __bos_level: u32 = 0;
 pub const __ANDROID_API_FUTURE__: u32 = 10000;
 pub const __ANDROID_API__: u32 = 10000;
@@ -105,14 +105,11 @@ pub const __ANDROID_API_P__: u32 = 28;
 pub const __ANDROID_API_Q__: u32 = 29;
 pub const __ANDROID_API_R__: u32 = 30;
 pub const __ANDROID_API_S__: u32 = 31;
-pub const __ANDROID_API_T__: u32 = 33;
-pub const __ANDROID_API_U__: u32 = 34;
-pub const __ANDROID_API_V__: u32 = 35;
 pub const __ANDROID_NDK__: u32 = 1;
-pub const __NDK_MAJOR__: u32 = 26;
-pub const __NDK_MINOR__: u32 = 2;
-pub const __NDK_BETA__: u32 = 0;
-pub const __NDK_BUILD__: u32 = 11394342;
+pub const __NDK_MAJOR__: u32 = 23;
+pub const __NDK_MINOR__: u32 = 0;
+pub const __NDK_BETA__: u32 = 4;
+pub const __NDK_BUILD__: u32 = 7344513;
 pub const __NDK_CANARY__: u32 = 0;
 pub const NR_OPEN: u32 = 1024;
 pub const NGROUPS_MAX: u32 = 65536;
@@ -136,7 +133,7 @@ pub const NL_SETMAX: u32 = 255;
 pub const NL_TEXTMAX: u32 = 255;
 pub const TMP_MAX: u32 = 308915776;
 pub const CHAR_BIT: u32 = 8;
-pub const LONG_BIT: u32 = 32;
+pub const LONG_BIT: u32 = 64;
 pub const WORD_BIT: u32 = 32;
 pub const SCHAR_MAX: u32 = 127;
 pub const SCHAR_MIN: i32 = -128;
@@ -149,9 +146,9 @@ pub const SHRT_MIN: i32 = -32768;
 pub const UINT_MAX: u32 = 4294967295;
 pub const INT_MAX: u32 = 2147483647;
 pub const INT_MIN: i32 = -2147483648;
-pub const ULONG_MAX: u32 = 4294967295;
-pub const LONG_MAX: u32 = 2147483647;
-pub const LONG_MIN: i32 = -2147483648;
+pub const ULONG_MAX: i32 = -1;
+pub const LONG_MAX: u64 = 9223372036854775807;
+pub const LONG_MIN: i64 = -9223372036854775808;
 pub const ULLONG_MAX: i32 = -1;
 pub const LLONG_MAX: u64 = 9223372036854775807;
 pub const LLONG_MIN: i64 = -9223372036854775808;
@@ -160,8 +157,8 @@ pub const LONG_LONG_MAX: u64 = 9223372036854775807;
 pub const ULONG_LONG_MAX: i32 = -1;
 pub const UID_MAX: u32 = 4294967295;
 pub const GID_MAX: u32 = 4294967295;
-pub const SIZE_T_MAX: u32 = 4294967295;
-pub const SSIZE_MAX: u32 = 2147483647;
+pub const SIZE_T_MAX: i32 = -1;
+pub const SSIZE_MAX: u64 = 9223372036854775807;
 pub const MB_LEN_MAX: u32 = 4;
 pub const NZERO: u32 = 20;
 pub const IOV_MAX: u32 = 1024;
@@ -219,10 +216,10 @@ pub const _POSIX2_FORT_RUN: i32 = -1;
 pub const _POSIX2_LOCALEDEF: i32 = -1;
 pub const _POSIX2_SW_DEV: i32 = -1;
 pub const _POSIX2_UPE: i32 = -1;
-pub const _POSIX_V7_ILP32_OFF32: u32 = 1;
+pub const _POSIX_V7_ILP32_OFF32: i32 = -1;
 pub const _POSIX_V7_ILP32_OFFBIG: i32 = -1;
-pub const _POSIX_V7_LP64_OFF64: i32 = -1;
-pub const _POSIX_V7_LPBIG_OFFBIG: i32 = -1;
+pub const _POSIX_V7_LP64_OFF64: u32 = 1;
+pub const _POSIX_V7_LPBIG_OFFBIG: u32 = 1;
 pub const _XOPEN_CRYPT: i32 = -1;
 pub const _XOPEN_ENH_I18N: u32 = 1;
 pub const _XOPEN_LEGACY: i32 = -1;
@@ -298,9 +295,9 @@ pub const G_MAXUSHORT: u32 = 65535;
 pub const G_MININT: i32 = -2147483648;
 pub const G_MAXINT: u32 = 2147483647;
 pub const G_MAXUINT: u32 = 4294967295;
-pub const G_MINLONG: i32 = -2147483648;
-pub const G_MAXLONG: u32 = 2147483647;
-pub const G_MAXULONG: u32 = 4294967295;
+pub const G_MINLONG: i64 = -9223372036854775808;
+pub const G_MAXLONG: u64 = 9223372036854775807;
+pub const G_MAXULONG: i32 = -1;
 pub const G_GINT16_MODIFIER: &[u8; 2] = b"h\0";
 pub const G_GINT16_FORMAT: &[u8; 3] = b"hi\0";
 pub const G_GUINT16_FORMAT: &[u8; 3] = b"hu\0";
@@ -308,26 +305,26 @@ pub const G_GINT32_MODIFIER: &[u8; 1] = b"\0";
 pub const G_GINT32_FORMAT: &[u8; 2] = b"i\0";
 pub const G_GUINT32_FORMAT: &[u8; 2] = b"u\0";
 pub const G_HAVE_GINT64: u32 = 1;
-pub const G_GINT64_MODIFIER: &[u8; 3] = b"ll\0";
-pub const G_GINT64_FORMAT: &[u8; 4] = b"lli\0";
-pub const G_GUINT64_FORMAT: &[u8; 4] = b"llu\0";
-pub const GLIB_SIZEOF_VOID_P: u32 = 4;
-pub const GLIB_SIZEOF_LONG: u32 = 4;
-pub const GLIB_SIZEOF_SIZE_T: u32 = 4;
-pub const GLIB_SIZEOF_SSIZE_T: u32 = 4;
-pub const G_GSIZE_MODIFIER: &[u8; 1] = b"\0";
-pub const G_GSSIZE_MODIFIER: &[u8; 1] = b"\0";
-pub const G_GSIZE_FORMAT: &[u8; 2] = b"u\0";
-pub const G_GSSIZE_FORMAT: &[u8; 2] = b"i\0";
-pub const G_MAXSIZE: u32 = 4294967295;
-pub const G_MINSSIZE: i32 = -2147483648;
-pub const G_MAXSSIZE: u32 = 2147483647;
-pub const G_GOFFSET_MODIFIER: &[u8; 3] = b"ll\0";
-pub const G_GOFFSET_FORMAT: &[u8; 4] = b"lli\0";
+pub const G_GINT64_MODIFIER: &[u8; 2] = b"l\0";
+pub const G_GINT64_FORMAT: &[u8; 3] = b"li\0";
+pub const G_GUINT64_FORMAT: &[u8; 3] = b"lu\0";
+pub const GLIB_SIZEOF_VOID_P: u32 = 8;
+pub const GLIB_SIZEOF_LONG: u32 = 8;
+pub const GLIB_SIZEOF_SIZE_T: u32 = 8;
+pub const GLIB_SIZEOF_SSIZE_T: u32 = 8;
+pub const G_GSIZE_MODIFIER: &[u8; 2] = b"l\0";
+pub const G_GSSIZE_MODIFIER: &[u8; 2] = b"l\0";
+pub const G_GSIZE_FORMAT: &[u8; 3] = b"lu\0";
+pub const G_GSSIZE_FORMAT: &[u8; 3] = b"li\0";
+pub const G_MAXSIZE: i32 = -1;
+pub const G_MINSSIZE: i64 = -9223372036854775808;
+pub const G_MAXSSIZE: u64 = 9223372036854775807;
+pub const G_GOFFSET_MODIFIER: &[u8; 2] = b"l\0";
+pub const G_GOFFSET_FORMAT: &[u8; 3] = b"li\0";
 pub const G_POLLFD_FORMAT: &[u8; 3] = b"%d\0";
-pub const G_GINTPTR_MODIFIER: &[u8; 1] = b"\0";
-pub const G_GINTPTR_FORMAT: &[u8; 2] = b"i\0";
-pub const G_GUINTPTR_FORMAT: &[u8; 2] = b"u\0";
+pub const G_GINTPTR_MODIFIER: &[u8; 2] = b"l\0";
+pub const G_GINTPTR_FORMAT: &[u8; 3] = b"li\0";
+pub const G_GUINTPTR_FORMAT: &[u8; 3] = b"lu\0";
 pub const GLIB_MAJOR_VERSION: u32 = 2;
 pub const GLIB_MINOR_VERSION: u32 = 75;
 pub const GLIB_MICRO_VERSION: u32 = 0;
@@ -375,13 +372,7 @@ pub const SIG_ATOMIC_MAX: u32 = 2147483647;
 pub const SIG_ATOMIC_MIN: i32 = -2147483648;
 pub const WINT_MAX: u32 = 4294967295;
 pub const WINT_MIN: u32 = 0;
-pub const INTPTR_MIN: i32 = -2147483648;
-pub const INTPTR_MAX: u32 = 2147483647;
-pub const UINTPTR_MAX: u32 = 4294967295;
-pub const PTRDIFF_MIN: i32 = -2147483648;
-pub const PTRDIFF_MAX: u32 = 2147483647;
-pub const SIZE_MAX: u32 = 4294967295;
-pub const __BITS_PER_LONG: u32 = 32;
+pub const __BITS_PER_LONG: u32 = 64;
 pub const __FD_SETSIZE: u32 = 1024;
 pub const ITIMER_REAL: u32 = 0;
 pub const ITIMER_VIRTUAL: u32 = 1;
@@ -402,7 +393,31 @@ pub const MAX_CLOCKS: u32 = 16;
 pub const CLOCKS_MASK: u32 = 1;
 pub const CLOCKS_MONO: u32 = 1;
 pub const TIMER_ABSTIME: u32 = 1;
-pub const _KERNEL_NSIG: u32 = 32;
+pub const FPSIMD_MAGIC: u32 = 1179680769;
+pub const ESR_MAGIC: u32 = 1163088385;
+pub const EXTRA_MAGIC: u32 = 1163416577;
+pub const SVE_MAGIC: u32 = 1398162689;
+pub const __SVE_VQ_BYTES: u32 = 16;
+pub const __SVE_VQ_MIN: u32 = 1;
+pub const __SVE_VQ_MAX: u32 = 512;
+pub const __SVE_VL_MIN: u32 = 16;
+pub const __SVE_VL_MAX: u32 = 8192;
+pub const __SVE_NUM_ZREGS: u32 = 32;
+pub const __SVE_NUM_PREGS: u32 = 16;
+pub const __SVE_ZREGS_OFFSET: u32 = 0;
+pub const SVE_VQ_BYTES: u32 = 16;
+pub const SVE_VQ_MIN: u32 = 1;
+pub const SVE_VQ_MAX: u32 = 512;
+pub const SVE_VL_MIN: u32 = 16;
+pub const SVE_VL_MAX: u32 = 8192;
+pub const SVE_NUM_ZREGS: u32 = 32;
+pub const SVE_NUM_PREGS: u32 = 16;
+pub const SA_RESTORER: u32 = 67108864;
+pub const MINSIGSTKSZ: u32 = 5120;
+pub const SIGSTKSZ: u32 = 16384;
+pub const _KERNEL__NSIG: u32 = 64;
+pub const _NSIG_BPW: u32 = 64;
+pub const _NSIG_WORDS: u32 = 1;
 pub const SIGHUP: u32 = 1;
 pub const SIGINT: u32 = 2;
 pub const SIGQUIT: u32 = 3;
@@ -438,11 +453,7 @@ pub const SIGPWR: u32 = 30;
 pub const SIGSYS: u32 = 31;
 pub const SIGUNUSED: u32 = 31;
 pub const __SIGRTMIN: u32 = 32;
-pub const SIGSWI: u32 = 32;
-pub const SA_THIRTYTWO: u32 = 33554432;
-pub const SA_RESTORER: u32 = 67108864;
-pub const MINSIGSTKSZ: u32 = 2048;
-pub const SIGSTKSZ: u32 = 8192;
+pub const __SIGRTMAX: u32 = 64;
 pub const SA_NOCLDSTOP: u32 = 1;
 pub const SA_NOCLDWAIT: u32 = 2;
 pub const SA_SIGINFO: u32 = 4;
@@ -517,9 +528,7 @@ pub const TRAP_TRACE: u32 = 2;
 pub const TRAP_BRANCH: u32 = 3;
 pub const TRAP_HWBKPT: u32 = 4;
 pub const TRAP_UNK: u32 = 5;
-pub const TRAP_PERF: u32 = 6;
-pub const NSIGTRAP: u32 = 6;
-pub const TRAP_PERF_FLAG_ASYNC: u32 = 1;
+pub const NSIGTRAP: u32 = 5;
 pub const CLD_EXITED: u32 = 1;
 pub const CLD_KILLED: u32 = 2;
 pub const CLD_DUMPED: u32 = 3;
@@ -548,18 +557,14 @@ pub const SS_ONSTACK: u32 = 1;
 pub const SS_DISABLE: u32 = 2;
 pub const SS_AUTODISARM: u32 = 2147483648;
 pub const SS_FLAG_BITS: u32 = 2147483648;
-pub const _KERNEL__NSIG: u32 = 64;
 pub const _NSIG: u32 = 65;
 pub const NSIG: u32 = 65;
 pub const PAGE_SIZE: u32 = 4096;
 pub const PAGE_MASK: i32 = -4096;
-pub const NGREG: u32 = 18;
+pub const NGREG: u32 = 34;
 pub const FD_SETSIZE: u32 = 1024;
 pub const CLOCKS_PER_SEC: u32 = 1000000;
 pub const TIME_UTC: u32 = 1;
-pub const TIME_MONOTONIC: u32 = 2;
-pub const TIME_ACTIVE: u32 = 3;
-pub const TIME_THREAD_ACTIVE: u32 = 4;
 pub const G_E: f64 = 2.718281828459045;
 pub const G_LN2: f64 = 0.6931471805599453;
 pub const G_LN10: f64 = 2.302585092994046;
@@ -602,10 +607,6 @@ pub const L_ctermid: u32 = 1024;
 pub const STRUCT_MALLINFO_DECLARED: u32 = 1;
 pub const M_DECAY_TIME: i32 = -100;
 pub const M_PURGE: i32 = -101;
-pub const M_PURGE_ALL: i32 = -104;
-pub const M_MEMTAG_TUNING: i32 = -102;
-pub const M_MEMTAG_TUNING_BUFFER_OVERFLOW: u32 = 0;
-pub const M_MEMTAG_TUNING_UAF: u32 = 1;
 pub const M_THREAD_DISABLE_MEM_INIT: i32 = -103;
 pub const M_CACHE_COUNT_MAX: i32 = -200;
 pub const M_CACHE_SIZE_MAX: i32 = -201;
@@ -628,7 +629,7 @@ pub const DT_REG: u32 = 8;
 pub const DT_LNK: u32 = 10;
 pub const DT_SOCK: u32 = 12;
 pub const DT_WHT: u32 = 14;
-pub const G_MEM_ALIGN: u32 = 4;
+pub const G_MEM_ALIGN: u32 = 8;
 pub const G_HOOK_FLAG_USER_SHIFT: u32 = 4;
 pub const G_PRIORITY_HIGH: i32 = -100;
 pub const G_PRIORITY_DEFAULT: u32 = 0;
@@ -869,7 +870,7 @@ pub const SCHED_FLAG_ALL: u32 = 127;
 pub const SCHED_OTHER: u32 = 0;
 pub const PTHREAD_ONCE_INIT: u32 = 0;
 pub const PTHREAD_BARRIER_SERIAL_THREAD: i32 = -1;
-pub const PTHREAD_STACK_MIN: u32 = 8192;
+pub const PTHREAD_STACK_MIN: u32 = 16384;
 pub const PTHREAD_CREATE_DETACHED: u32 = 1;
 pub const PTHREAD_CREATE_JOINABLE: u32 = 0;
 pub const PTHREAD_EXPLICIT_SCHED: u32 = 0;
@@ -1185,7 +1186,6 @@ pub const G_VOLUME_IDENTIFIER_KIND_LABEL: &[u8; 6] = b"label\0";
 pub const G_VOLUME_IDENTIFIER_KIND_UUID: &[u8; 5] = b"uuid\0";
 pub const G_VOLUME_IDENTIFIER_KIND_NFS_MOUNT: &[u8; 10] = b"nfs-mount\0";
 pub const G_VOLUME_IDENTIFIER_KIND_CLASS: &[u8; 6] = b"class\0";
-pub const GUM_PSR_T_BIT: u32 = 32;
 pub const GUM_NATIVE_ABI_IS_WINDOWS: u32 = 0;
 pub const GUM_NATIVE_ABI_IS_UNIX: u32 = 1;
 pub const GUM_MAX_PATH: u32 = 260;
@@ -1219,176 +1219,167 @@ pub const GUM_INT32_MASK: u32 = 4294967295;
 pub const GUM_API_SIZE_NONE: i32 = -1;
 pub const GUM_DARWIN_PORT_NULL: u32 = 0;
 pub const GUM_DARWIN_EXPORT_KIND_MASK: u32 = 3;
-pub const _JBLEN: u32 = 64;
+pub const _JBLEN: u32 = 32;
 pub const __bool_true_false_are_defined: u32 = 1;
 pub const true_: u32 = 1;
 pub const false_: u32 = 0;
-pub const __PRI_64_prefix: &[u8; 3] = b"ll\0";
+pub const __PRI_64_prefix: &[u8; 2] = b"l\0";
+pub const __PRI_PTR_prefix: &[u8; 2] = b"l\0";
+pub const __PRI_FAST_prefix: &[u8; 2] = b"l\0";
 pub const PRId8: &[u8; 2] = b"d\0";
 pub const PRId16: &[u8; 2] = b"d\0";
 pub const PRId32: &[u8; 2] = b"d\0";
-pub const PRId64: &[u8; 4] = b"lld\0";
+pub const PRId64: &[u8; 3] = b"ld\0";
 pub const PRIdLEAST8: &[u8; 2] = b"d\0";
 pub const PRIdLEAST16: &[u8; 2] = b"d\0";
 pub const PRIdLEAST32: &[u8; 2] = b"d\0";
-pub const PRIdLEAST64: &[u8; 4] = b"lld\0";
+pub const PRIdLEAST64: &[u8; 3] = b"ld\0";
 pub const PRIdFAST8: &[u8; 2] = b"d\0";
-pub const PRIdFAST64: &[u8; 4] = b"lld\0";
+pub const PRIdFAST16: &[u8; 3] = b"ld\0";
+pub const PRIdFAST32: &[u8; 3] = b"ld\0";
+pub const PRIdFAST64: &[u8; 3] = b"ld\0";
 pub const PRIdMAX: &[u8; 3] = b"jd\0";
+pub const PRIdPTR: &[u8; 3] = b"ld\0";
 pub const PRIi8: &[u8; 2] = b"i\0";
 pub const PRIi16: &[u8; 2] = b"i\0";
 pub const PRIi32: &[u8; 2] = b"i\0";
-pub const PRIi64: &[u8; 4] = b"lli\0";
+pub const PRIi64: &[u8; 3] = b"li\0";
 pub const PRIiLEAST8: &[u8; 2] = b"i\0";
 pub const PRIiLEAST16: &[u8; 2] = b"i\0";
 pub const PRIiLEAST32: &[u8; 2] = b"i\0";
-pub const PRIiLEAST64: &[u8; 4] = b"lli\0";
+pub const PRIiLEAST64: &[u8; 3] = b"li\0";
 pub const PRIiFAST8: &[u8; 2] = b"i\0";
-pub const PRIiFAST64: &[u8; 4] = b"lli\0";
+pub const PRIiFAST16: &[u8; 3] = b"li\0";
+pub const PRIiFAST32: &[u8; 3] = b"li\0";
+pub const PRIiFAST64: &[u8; 3] = b"li\0";
 pub const PRIiMAX: &[u8; 3] = b"ji\0";
-pub const PRIb8: &[u8; 2] = b"b\0";
-pub const PRIb16: &[u8; 2] = b"b\0";
-pub const PRIb32: &[u8; 2] = b"b\0";
-pub const PRIb64: &[u8; 4] = b"llb\0";
-pub const PRIbLEAST8: &[u8; 2] = b"b\0";
-pub const PRIbLEAST16: &[u8; 2] = b"b\0";
-pub const PRIbLEAST32: &[u8; 2] = b"b\0";
-pub const PRIbLEAST64: &[u8; 4] = b"llb\0";
-pub const PRIbFAST8: &[u8; 2] = b"b\0";
-pub const PRIbFAST64: &[u8; 4] = b"llb\0";
-pub const PRIbMAX: &[u8; 3] = b"jb\0";
-pub const PRIB8: &[u8; 2] = b"B\0";
-pub const PRIB16: &[u8; 2] = b"B\0";
-pub const PRIB32: &[u8; 2] = b"B\0";
-pub const PRIB64: &[u8; 4] = b"llB\0";
-pub const PRIBLEAST8: &[u8; 2] = b"B\0";
-pub const PRIBLEAST16: &[u8; 2] = b"B\0";
-pub const PRIBLEAST32: &[u8; 2] = b"B\0";
-pub const PRIBLEAST64: &[u8; 4] = b"llB\0";
-pub const PRIBFAST8: &[u8; 2] = b"B\0";
-pub const PRIBFAST64: &[u8; 4] = b"llB\0";
-pub const PRIBMAX: &[u8; 3] = b"jB\0";
+pub const PRIiPTR: &[u8; 3] = b"li\0";
 pub const PRIo8: &[u8; 2] = b"o\0";
 pub const PRIo16: &[u8; 2] = b"o\0";
 pub const PRIo32: &[u8; 2] = b"o\0";
-pub const PRIo64: &[u8; 4] = b"llo\0";
+pub const PRIo64: &[u8; 3] = b"lo\0";
 pub const PRIoLEAST8: &[u8; 2] = b"o\0";
 pub const PRIoLEAST16: &[u8; 2] = b"o\0";
 pub const PRIoLEAST32: &[u8; 2] = b"o\0";
-pub const PRIoLEAST64: &[u8; 4] = b"llo\0";
+pub const PRIoLEAST64: &[u8; 3] = b"lo\0";
 pub const PRIoFAST8: &[u8; 2] = b"o\0";
-pub const PRIoFAST64: &[u8; 4] = b"llo\0";
+pub const PRIoFAST16: &[u8; 3] = b"lo\0";
+pub const PRIoFAST32: &[u8; 3] = b"lo\0";
+pub const PRIoFAST64: &[u8; 3] = b"lo\0";
 pub const PRIoMAX: &[u8; 3] = b"jo\0";
+pub const PRIoPTR: &[u8; 3] = b"lo\0";
 pub const PRIu8: &[u8; 2] = b"u\0";
 pub const PRIu16: &[u8; 2] = b"u\0";
 pub const PRIu32: &[u8; 2] = b"u\0";
-pub const PRIu64: &[u8; 4] = b"llu\0";
+pub const PRIu64: &[u8; 3] = b"lu\0";
 pub const PRIuLEAST8: &[u8; 2] = b"u\0";
 pub const PRIuLEAST16: &[u8; 2] = b"u\0";
 pub const PRIuLEAST32: &[u8; 2] = b"u\0";
-pub const PRIuLEAST64: &[u8; 4] = b"llu\0";
+pub const PRIuLEAST64: &[u8; 3] = b"lu\0";
 pub const PRIuFAST8: &[u8; 2] = b"u\0";
-pub const PRIuFAST64: &[u8; 4] = b"llu\0";
+pub const PRIuFAST16: &[u8; 3] = b"lu\0";
+pub const PRIuFAST32: &[u8; 3] = b"lu\0";
+pub const PRIuFAST64: &[u8; 3] = b"lu\0";
 pub const PRIuMAX: &[u8; 3] = b"ju\0";
+pub const PRIuPTR: &[u8; 3] = b"lu\0";
 pub const PRIx8: &[u8; 2] = b"x\0";
 pub const PRIx16: &[u8; 2] = b"x\0";
 pub const PRIx32: &[u8; 2] = b"x\0";
-pub const PRIx64: &[u8; 4] = b"llx\0";
+pub const PRIx64: &[u8; 3] = b"lx\0";
 pub const PRIxLEAST8: &[u8; 2] = b"x\0";
 pub const PRIxLEAST16: &[u8; 2] = b"x\0";
 pub const PRIxLEAST32: &[u8; 2] = b"x\0";
-pub const PRIxLEAST64: &[u8; 4] = b"llx\0";
+pub const PRIxLEAST64: &[u8; 3] = b"lx\0";
 pub const PRIxFAST8: &[u8; 2] = b"x\0";
-pub const PRIxFAST64: &[u8; 4] = b"llx\0";
+pub const PRIxFAST16: &[u8; 3] = b"lx\0";
+pub const PRIxFAST32: &[u8; 3] = b"lx\0";
+pub const PRIxFAST64: &[u8; 3] = b"lx\0";
 pub const PRIxMAX: &[u8; 3] = b"jx\0";
+pub const PRIxPTR: &[u8; 3] = b"lx\0";
 pub const PRIX8: &[u8; 2] = b"X\0";
 pub const PRIX16: &[u8; 2] = b"X\0";
 pub const PRIX32: &[u8; 2] = b"X\0";
-pub const PRIX64: &[u8; 4] = b"llX\0";
+pub const PRIX64: &[u8; 3] = b"lX\0";
 pub const PRIXLEAST8: &[u8; 2] = b"X\0";
 pub const PRIXLEAST16: &[u8; 2] = b"X\0";
 pub const PRIXLEAST32: &[u8; 2] = b"X\0";
-pub const PRIXLEAST64: &[u8; 4] = b"llX\0";
+pub const PRIXLEAST64: &[u8; 3] = b"lX\0";
 pub const PRIXFAST8: &[u8; 2] = b"X\0";
-pub const PRIXFAST64: &[u8; 4] = b"llX\0";
+pub const PRIXFAST16: &[u8; 3] = b"lX\0";
+pub const PRIXFAST32: &[u8; 3] = b"lX\0";
+pub const PRIXFAST64: &[u8; 3] = b"lX\0";
 pub const PRIXMAX: &[u8; 3] = b"jX\0";
+pub const PRIXPTR: &[u8; 3] = b"lX\0";
 pub const SCNd8: &[u8; 4] = b"hhd\0";
 pub const SCNd16: &[u8; 3] = b"hd\0";
 pub const SCNd32: &[u8; 2] = b"d\0";
-pub const SCNd64: &[u8; 4] = b"lld\0";
+pub const SCNd64: &[u8; 3] = b"ld\0";
 pub const SCNdLEAST8: &[u8; 4] = b"hhd\0";
 pub const SCNdLEAST16: &[u8; 3] = b"hd\0";
 pub const SCNdLEAST32: &[u8; 2] = b"d\0";
-pub const SCNdLEAST64: &[u8; 4] = b"lld\0";
+pub const SCNdLEAST64: &[u8; 3] = b"ld\0";
 pub const SCNdFAST8: &[u8; 4] = b"hhd\0";
-pub const SCNdFAST64: &[u8; 4] = b"lld\0";
+pub const SCNdFAST16: &[u8; 3] = b"ld\0";
+pub const SCNdFAST32: &[u8; 3] = b"ld\0";
+pub const SCNdFAST64: &[u8; 3] = b"ld\0";
 pub const SCNdMAX: &[u8; 3] = b"jd\0";
+pub const SCNdPTR: &[u8; 3] = b"ld\0";
 pub const SCNi8: &[u8; 4] = b"hhi\0";
 pub const SCNi16: &[u8; 3] = b"hi\0";
 pub const SCNi32: &[u8; 2] = b"i\0";
-pub const SCNi64: &[u8; 4] = b"lli\0";
+pub const SCNi64: &[u8; 3] = b"li\0";
 pub const SCNiLEAST8: &[u8; 4] = b"hhi\0";
 pub const SCNiLEAST16: &[u8; 3] = b"hi\0";
 pub const SCNiLEAST32: &[u8; 2] = b"i\0";
-pub const SCNiLEAST64: &[u8; 4] = b"lli\0";
+pub const SCNiLEAST64: &[u8; 3] = b"li\0";
 pub const SCNiFAST8: &[u8; 4] = b"hhi\0";
-pub const SCNiFAST64: &[u8; 4] = b"lli\0";
+pub const SCNiFAST16: &[u8; 3] = b"li\0";
+pub const SCNiFAST32: &[u8; 3] = b"li\0";
+pub const SCNiFAST64: &[u8; 3] = b"li\0";
 pub const SCNiMAX: &[u8; 3] = b"ji\0";
-pub const SCNb8: &[u8; 4] = b"hhb\0";
-pub const SCNb16: &[u8; 3] = b"hb\0";
-pub const SCNb32: &[u8; 2] = b"b\0";
-pub const SCNb64: &[u8; 4] = b"llb\0";
-pub const SCNbLEAST8: &[u8; 4] = b"hhb\0";
-pub const SCNbLEAST16: &[u8; 3] = b"hb\0";
-pub const SCNbLEAST32: &[u8; 2] = b"b\0";
-pub const SCNbLEAST64: &[u8; 4] = b"llb\0";
-pub const SCNbFAST8: &[u8; 4] = b"hhb\0";
-pub const SCNbFAST64: &[u8; 4] = b"llb\0";
-pub const SCNbMAX: &[u8; 3] = b"jb\0";
-pub const SCNB8: &[u8; 4] = b"hhB\0";
-pub const SCNB16: &[u8; 3] = b"hB\0";
-pub const SCNB32: &[u8; 2] = b"B\0";
-pub const SCNB64: &[u8; 4] = b"llB\0";
-pub const SCNBLEAST8: &[u8; 4] = b"hhB\0";
-pub const SCNBLEAST16: &[u8; 3] = b"hB\0";
-pub const SCNBLEAST32: &[u8; 2] = b"B\0";
-pub const SCNBLEAST64: &[u8; 4] = b"llB\0";
-pub const SCNBFAST8: &[u8; 4] = b"hhB\0";
-pub const SCNBFAST64: &[u8; 4] = b"llB\0";
-pub const SCNBMAX: &[u8; 3] = b"jB\0";
+pub const SCNiPTR: &[u8; 3] = b"li\0";
 pub const SCNo8: &[u8; 4] = b"hho\0";
 pub const SCNo16: &[u8; 3] = b"ho\0";
 pub const SCNo32: &[u8; 2] = b"o\0";
-pub const SCNo64: &[u8; 4] = b"llo\0";
+pub const SCNo64: &[u8; 3] = b"lo\0";
 pub const SCNoLEAST8: &[u8; 4] = b"hho\0";
 pub const SCNoLEAST16: &[u8; 3] = b"ho\0";
 pub const SCNoLEAST32: &[u8; 2] = b"o\0";
-pub const SCNoLEAST64: &[u8; 4] = b"llo\0";
+pub const SCNoLEAST64: &[u8; 3] = b"lo\0";
 pub const SCNoFAST8: &[u8; 4] = b"hho\0";
-pub const SCNoFAST64: &[u8; 4] = b"llo\0";
+pub const SCNoFAST16: &[u8; 3] = b"lo\0";
+pub const SCNoFAST32: &[u8; 3] = b"lo\0";
+pub const SCNoFAST64: &[u8; 3] = b"lo\0";
 pub const SCNoMAX: &[u8; 3] = b"jo\0";
+pub const SCNoPTR: &[u8; 3] = b"lo\0";
 pub const SCNu8: &[u8; 4] = b"hhu\0";
 pub const SCNu16: &[u8; 3] = b"hu\0";
 pub const SCNu32: &[u8; 2] = b"u\0";
-pub const SCNu64: &[u8; 4] = b"llu\0";
+pub const SCNu64: &[u8; 3] = b"lu\0";
 pub const SCNuLEAST8: &[u8; 4] = b"hhu\0";
 pub const SCNuLEAST16: &[u8; 3] = b"hu\0";
 pub const SCNuLEAST32: &[u8; 2] = b"u\0";
-pub const SCNuLEAST64: &[u8; 4] = b"llu\0";
+pub const SCNuLEAST64: &[u8; 3] = b"lu\0";
 pub const SCNuFAST8: &[u8; 4] = b"hhu\0";
-pub const SCNuFAST64: &[u8; 4] = b"llu\0";
+pub const SCNuFAST16: &[u8; 3] = b"lu\0";
+pub const SCNuFAST32: &[u8; 3] = b"lu\0";
+pub const SCNuFAST64: &[u8; 3] = b"lu\0";
 pub const SCNuMAX: &[u8; 3] = b"ju\0";
+pub const SCNuPTR: &[u8; 3] = b"lu\0";
 pub const SCNx8: &[u8; 4] = b"hhx\0";
 pub const SCNx16: &[u8; 3] = b"hx\0";
 pub const SCNx32: &[u8; 2] = b"x\0";
-pub const SCNx64: &[u8; 4] = b"llx\0";
+pub const SCNx64: &[u8; 3] = b"lx\0";
 pub const SCNxLEAST8: &[u8; 4] = b"hhx\0";
 pub const SCNxLEAST16: &[u8; 3] = b"hx\0";
 pub const SCNxLEAST32: &[u8; 2] = b"x\0";
-pub const SCNxLEAST64: &[u8; 4] = b"llx\0";
+pub const SCNxLEAST64: &[u8; 3] = b"lx\0";
 pub const SCNxFAST8: &[u8; 4] = b"hhx\0";
-pub const SCNxFAST64: &[u8; 4] = b"llx\0";
+pub const SCNxFAST16: &[u8; 3] = b"lx\0";
+pub const SCNxFAST32: &[u8; 3] = b"lx\0";
+pub const SCNxFAST64: &[u8; 3] = b"lx\0";
 pub const SCNxMAX: &[u8; 3] = b"jx\0";
+pub const SCNxPTR: &[u8; 3] = b"lx\0";
 pub const CS_API_MAJOR: u32 = 5;
 pub const CS_API_MINOR: u32 = 0;
 pub const CS_NEXT_VERSION: u32 = 5;
@@ -1503,10 +1494,12 @@ pub const JSON_VERSION_S: &[u8; 6] = b"1.7.1\0";
 pub const GUM_MAX_ASSET_SIZE: u32 = 104857600;
 pub type wchar_t = ::core::ffi::c_uint;
 #[repr(C)]
+#[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct max_align_t {
     pub __clang_max_align_nonce1: ::core::ffi::c_longlong,
-    pub __clang_max_align_nonce2: f64,
+    pub __bindgen_padding_0: u64,
+    pub __clang_max_align_nonce2: u128,
 }
 extern "C" {
     pub fn android_get_application_target_sdk_version() -> ::core::ffi::c_int;
@@ -1520,13 +1513,13 @@ pub type gint16 = ::core::ffi::c_short;
 pub type guint16 = ::core::ffi::c_ushort;
 pub type gint32 = ::core::ffi::c_int;
 pub type guint32 = ::core::ffi::c_uint;
-pub type gint64 = ::core::ffi::c_longlong;
-pub type guint64 = ::core::ffi::c_ulonglong;
-pub type gssize = ::core::ffi::c_int;
-pub type gsize = ::core::ffi::c_uint;
+pub type gint64 = ::core::ffi::c_long;
+pub type guint64 = ::core::ffi::c_ulong;
+pub type gssize = ::core::ffi::c_long;
+pub type gsize = ::core::ffi::c_ulong;
 pub type goffset = gint64;
-pub type gintptr = ::core::ffi::c_int;
-pub type guintptr = ::core::ffi::c_uint;
+pub type gintptr = ::core::ffi::c_long;
+pub type guintptr = ::core::ffi::c_ulong;
 pub type GPid = ::core::ffi::c_int;
 pub type __int8_t = ::core::ffi::c_schar;
 pub type __uint8_t = ::core::ffi::c_uchar;
@@ -1534,10 +1527,10 @@ pub type __int16_t = ::core::ffi::c_short;
 pub type __uint16_t = ::core::ffi::c_ushort;
 pub type __int32_t = ::core::ffi::c_int;
 pub type __uint32_t = ::core::ffi::c_uint;
-pub type __int64_t = ::core::ffi::c_longlong;
-pub type __uint64_t = ::core::ffi::c_ulonglong;
-pub type __intptr_t = ::core::ffi::c_int;
-pub type __uintptr_t = ::core::ffi::c_uint;
+pub type __int64_t = ::core::ffi::c_long;
+pub type __uint64_t = ::core::ffi::c_ulong;
+pub type __intptr_t = ::core::ffi::c_long;
+pub type __uintptr_t = ::core::ffi::c_ulong;
 pub type int_least8_t = i8;
 pub type uint_least8_t = u8;
 pub type int_least16_t = i16;
@@ -1550,10 +1543,10 @@ pub type int_fast8_t = i8;
 pub type uint_fast8_t = u8;
 pub type int_fast64_t = i64;
 pub type uint_fast64_t = u64;
-pub type int_fast16_t = i32;
-pub type uint_fast16_t = u32;
-pub type int_fast32_t = i32;
-pub type uint_fast32_t = u32;
+pub type int_fast16_t = i64;
+pub type uint_fast16_t = u64;
+pub type int_fast32_t = i64;
+pub type uint_fast32_t = u64;
 pub type uintmax_t = u64;
 pub type intmax_t = i64;
 pub type __s8 = ::core::ffi::c_schar;
@@ -1567,30 +1560,30 @@ pub type __u64 = ::core::ffi::c_ulonglong;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __kernel_fd_set {
-    pub fds_bits: [::core::ffi::c_ulong; 32usize],
+    pub fds_bits: [::core::ffi::c_ulong; 16usize],
 }
 pub type __kernel_sighandler_t =
     ::core::option::Option<unsafe extern "C" fn(arg1: ::core::ffi::c_int)>;
 pub type __kernel_key_t = ::core::ffi::c_int;
 pub type __kernel_mqd_t = ::core::ffi::c_int;
-pub type __kernel_mode_t = ::core::ffi::c_ushort;
-pub type __kernel_ipc_pid_t = ::core::ffi::c_ushort;
-pub type __kernel_uid_t = ::core::ffi::c_ushort;
-pub type __kernel_gid_t = ::core::ffi::c_ushort;
-pub type __kernel_old_dev_t = ::core::ffi::c_ushort;
+pub type __kernel_old_uid_t = ::core::ffi::c_ushort;
+pub type __kernel_old_gid_t = ::core::ffi::c_ushort;
 pub type __kernel_long_t = ::core::ffi::c_long;
 pub type __kernel_ulong_t = ::core::ffi::c_ulong;
 pub type __kernel_ino_t = __kernel_ulong_t;
+pub type __kernel_mode_t = ::core::ffi::c_uint;
 pub type __kernel_pid_t = ::core::ffi::c_int;
+pub type __kernel_ipc_pid_t = ::core::ffi::c_int;
+pub type __kernel_uid_t = ::core::ffi::c_uint;
+pub type __kernel_gid_t = ::core::ffi::c_uint;
 pub type __kernel_suseconds_t = __kernel_long_t;
 pub type __kernel_daddr_t = ::core::ffi::c_int;
 pub type __kernel_uid32_t = ::core::ffi::c_uint;
 pub type __kernel_gid32_t = ::core::ffi::c_uint;
-pub type __kernel_old_uid_t = __kernel_uid_t;
-pub type __kernel_old_gid_t = __kernel_gid_t;
-pub type __kernel_size_t = ::core::ffi::c_uint;
-pub type __kernel_ssize_t = ::core::ffi::c_int;
-pub type __kernel_ptrdiff_t = ::core::ffi::c_int;
+pub type __kernel_old_dev_t = ::core::ffi::c_uint;
+pub type __kernel_size_t = __kernel_ulong_t;
+pub type __kernel_ssize_t = __kernel_long_t;
+pub type __kernel_ptrdiff_t = __kernel_long_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __kernel_fsid_t {
@@ -1625,37 +1618,38 @@ pub struct pthread_attr_t {
     pub guard_size: usize,
     pub sched_policy: i32,
     pub sched_priority: i32,
+    pub __reserved: [::core::ffi::c_char; 16usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct pthread_barrier_t {
-    pub __private: [i32; 8usize],
+    pub __private: [i64; 4usize],
 }
 pub type pthread_barrierattr_t = ::core::ffi::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct pthread_cond_t {
-    pub __private: [i32; 1usize],
+    pub __private: [i32; 12usize],
 }
 pub type pthread_condattr_t = ::core::ffi::c_long;
 pub type pthread_key_t = ::core::ffi::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct pthread_mutex_t {
-    pub __private: [i32; 1usize],
+    pub __private: [i32; 10usize],
 }
 pub type pthread_mutexattr_t = ::core::ffi::c_long;
 pub type pthread_once_t = ::core::ffi::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct pthread_rwlock_t {
-    pub __private: [i32; 10usize],
+    pub __private: [i32; 14usize],
 }
 pub type pthread_rwlockattr_t = ::core::ffi::c_long;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct pthread_spinlock_t {
-    pub __private: [i32; 2usize],
+    pub __private: i64,
 }
 pub type pthread_t = ::core::ffi::c_long;
 pub type __gid_t = __kernel_gid32_t;
@@ -1690,15 +1684,15 @@ pub type __suseconds_t = __kernel_suseconds_t;
 pub type suseconds_t = __suseconds_t;
 pub type __useconds_t = u32;
 pub type useconds_t = __useconds_t;
-pub type dev_t = u32;
+pub type dev_t = u64;
 pub type __time_t = __kernel_time_t;
 pub type time_t = __time_t;
-pub type off_t = __kernel_off_t;
-pub type loff_t = __kernel_loff_t;
+pub type off_t = i64;
+pub type loff_t = off_t;
 pub type off64_t = loff_t;
-pub type __socklen_t = i32;
+pub type __socklen_t = u32;
 pub type socklen_t = __socklen_t;
-pub type __va_list = u32;
+pub type __va_list = [u64; 4usize];
 pub type uint_t = ::core::ffi::c_uint;
 pub type uint = ::core::ffi::c_uint;
 pub type u_char = ::core::ffi::c_uchar;
@@ -1709,12 +1703,6 @@ pub type u_int32_t = u32;
 pub type u_int16_t = u16;
 pub type u_int8_t = u8;
 pub type u_int64_t = u64;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct timespec {
-    pub tv_sec: time_t,
-    pub tv_nsec: ::core::ffi::c_long,
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __kernel_timespec {
@@ -1741,6 +1729,12 @@ pub struct __kernel_sock_timeval {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub struct timespec {
+    pub tv_sec: __kernel_old_time_t,
+    pub tv_nsec: ::core::ffi::c_long,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct timeval {
     pub tv_sec: __kernel_old_time_t,
     pub tv_usec: __kernel_suseconds_t,
@@ -1764,61 +1758,77 @@ pub struct timezone {
     pub tz_dsttime: ::core::ffi::c_int,
 }
 #[repr(C)]
+#[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct sigcontext {
-    pub trap_no: ::core::ffi::c_ulong,
-    pub error_code: ::core::ffi::c_ulong,
-    pub oldmask: ::core::ffi::c_ulong,
-    pub arm_r0: ::core::ffi::c_ulong,
-    pub arm_r1: ::core::ffi::c_ulong,
-    pub arm_r2: ::core::ffi::c_ulong,
-    pub arm_r3: ::core::ffi::c_ulong,
-    pub arm_r4: ::core::ffi::c_ulong,
-    pub arm_r5: ::core::ffi::c_ulong,
-    pub arm_r6: ::core::ffi::c_ulong,
-    pub arm_r7: ::core::ffi::c_ulong,
-    pub arm_r8: ::core::ffi::c_ulong,
-    pub arm_r9: ::core::ffi::c_ulong,
-    pub arm_r10: ::core::ffi::c_ulong,
-    pub arm_fp: ::core::ffi::c_ulong,
-    pub arm_ip: ::core::ffi::c_ulong,
-    pub arm_sp: ::core::ffi::c_ulong,
-    pub arm_lr: ::core::ffi::c_ulong,
-    pub arm_pc: ::core::ffi::c_ulong,
-    pub arm_cpsr: ::core::ffi::c_ulong,
-    pub fault_address: ::core::ffi::c_ulong,
+    pub fault_address: __u64,
+    pub regs: [__u64; 31usize],
+    pub sp: __u64,
+    pub pc: __u64,
+    pub pstate: __u64,
+    pub __bindgen_padding_0: [u8; 8usize],
+    pub __reserved: [__u8; 4096usize],
 }
-pub type sigset_t = ::core::ffi::c_ulong;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct _aarch64_ctx {
+    pub magic: __u32,
+    pub size: __u32,
+}
+#[repr(C)]
+#[repr(align(16))]
+#[derive(Debug, Copy, Clone)]
+pub struct fpsimd_context {
+    pub head: _aarch64_ctx,
+    pub fpsr: __u32,
+    pub fpcr: __u32,
+    pub vregs: [__uint128_t; 32usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esr_context {
+    pub head: _aarch64_ctx,
+    pub esr: __u64,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct extra_context {
+    pub head: _aarch64_ctx,
+    pub datap: __u64,
+    pub size: __u32,
+    pub __reserved: [__u32; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct sve_context {
+    pub head: _aarch64_ctx,
+    pub vl: __u16,
+    pub __reserved: [__u16; 3usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct sigset_t {
+    pub sig: [::core::ffi::c_ulong; 1usize],
+}
+pub type old_sigset_t = ::core::ffi::c_ulong;
 pub type __signalfn_t = ::core::option::Option<unsafe extern "C" fn(arg1: ::core::ffi::c_int)>;
 pub type __sighandler_t = __signalfn_t;
 pub type __restorefn_t = ::core::option::Option<unsafe extern "C" fn()>;
 pub type __sigrestore_t = __restorefn_t;
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct __kernel_sigaction {
-    pub _u: __kernel_sigaction__bindgen_ty_1,
-    pub sa_mask: sigset_t,
+    pub sa_handler: __sighandler_t,
     pub sa_flags: ::core::ffi::c_ulong,
-    pub sa_restorer: ::core::option::Option<unsafe extern "C" fn()>,
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union __kernel_sigaction__bindgen_ty_1 {
-    pub _sa_handler: __sighandler_t,
-    pub _sa_sigaction: ::core::option::Option<
-        unsafe extern "C" fn(
-            arg1: ::core::ffi::c_int,
-            arg2: *mut siginfo,
-            arg3: *mut ::core::ffi::c_void,
-        ),
-    >,
+    pub sa_restorer: __sigrestore_t,
+    pub sa_mask: sigset_t,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct sigaltstack {
     pub ss_sp: *mut ::core::ffi::c_void,
     pub ss_flags: ::core::ffi::c_int,
-    pub ss_size: __kernel_size_t,
+    pub ss_size: usize,
 }
 pub type stack_t = sigaltstack;
 #[repr(C)]
@@ -1878,31 +1888,22 @@ pub struct __sifields__bindgen_ty_5 {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union __sifields__bindgen_ty_5__bindgen_ty_1 {
-    pub _trapno: ::core::ffi::c_int,
     pub _addr_lsb: ::core::ffi::c_short,
     pub _addr_bnd: __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_1,
     pub _addr_pkey: __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_2,
-    pub _perf: __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_3,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_1 {
-    pub _dummy_bnd: [::core::ffi::c_char; 4usize],
+    pub _dummy_bnd: [::core::ffi::c_char; 8usize],
     pub _lower: *mut ::core::ffi::c_void,
     pub _upper: *mut ::core::ffi::c_void,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_2 {
-    pub _dummy_pkey: [::core::ffi::c_char; 4usize],
+    pub _dummy_pkey: [::core::ffi::c_char; 8usize],
     pub _pkey: __u32,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __sifields__bindgen_ty_5__bindgen_ty_1__bindgen_ty_3 {
-    pub _data: ::core::ffi::c_ulong,
-    pub _type: __u32,
-    pub _flags: __u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1948,7 +1949,7 @@ pub struct sigevent {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union sigevent__bindgen_ty_1 {
-    pub _pad: [::core::ffi::c_int; 13usize],
+    pub _pad: [::core::ffi::c_int; 12usize],
     pub _tid: ::core::ffi::c_int,
     pub _sigev_thread: sigevent__bindgen_ty_1__bindgen_ty_1,
 }
@@ -1962,17 +1963,13 @@ pub type sigevent_t = sigevent;
 pub type sig_atomic_t = ::core::ffi::c_int;
 pub type sig_t = __sighandler_t;
 pub type sighandler_t = __sighandler_t;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct sigset64_t {
-    pub __bits: [::core::ffi::c_ulong; 2usize],
-}
+pub type sigset64_t = sigset_t;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct sigaction {
+    pub sa_flags: ::core::ffi::c_int,
     pub __bindgen_anon_1: sigaction__bindgen_ty_1,
     pub sa_mask: sigset_t,
-    pub sa_flags: ::core::ffi::c_int,
     pub sa_restorer: ::core::option::Option<unsafe extern "C" fn()>,
 }
 #[repr(C)]
@@ -1990,10 +1987,10 @@ pub union sigaction__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct sigaction64 {
-    pub __bindgen_anon_1: sigaction64__bindgen_ty_1,
     pub sa_flags: ::core::ffi::c_int,
+    pub __bindgen_anon_1: sigaction64__bindgen_ty_1,
+    pub sa_mask: sigset_t,
     pub sa_restorer: ::core::option::Option<unsafe extern "C" fn()>,
-    pub sa_mask: sigset64_t,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -2009,260 +2006,41 @@ pub union sigaction64__bindgen_ty_1 {
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct user_fpregs {
-    pub fpregs: [user_fpregs_fp_reg; 8usize],
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 8usize]>,
-    pub ftype: [::core::ffi::c_uchar; 8usize],
-    pub init_flag: ::core::ffi::c_uint,
+pub struct user_regs_struct {
+    pub regs: [u64; 31usize],
+    pub sp: u64,
+    pub pc: u64,
+    pub pstate: u64,
 }
 #[repr(C)]
+#[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
-pub struct user_fpregs_fp_reg {
-    pub _bitfield_align_1: [u32; 0],
-    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 12usize]>,
+pub struct user_fpsimd_struct {
+    pub vregs: [__uint128_t; 32usize],
+    pub fpsr: u32,
+    pub fpcr: u32,
 }
-impl user_fpregs_fp_reg {
-    #[inline]
-    pub fn sign1(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sign1(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn unused(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 15u8) as u32) }
-    }
-    #[inline]
-    pub fn set_unused(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(1usize, 15u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn sign2(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(16usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_sign2(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(16usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn exponent(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(17usize, 14u8) as u32) }
-    }
-    #[inline]
-    pub fn set_exponent(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(17usize, 14u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn j(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(31usize, 1u8) as u32) }
-    }
-    #[inline]
-    pub fn set_j(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(31usize, 1u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn mantissa1(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(32usize, 31u8) as u32) }
-    }
-    #[inline]
-    pub fn set_mantissa1(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(32usize, 31u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn mantissa0(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(64usize, 32u8) as u32) }
-    }
-    #[inline]
-    pub fn set_mantissa0(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(64usize, 32u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        sign1: ::core::ffi::c_uint,
-        unused: ::core::ffi::c_uint,
-        sign2: ::core::ffi::c_uint,
-        exponent: ::core::ffi::c_uint,
-        j: ::core::ffi::c_uint,
-        mantissa1: ::core::ffi::c_uint,
-        mantissa0: ::core::ffi::c_uint,
-    ) -> __BindgenBitfieldUnit<[u8; 12usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 12usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 1u8, {
-            let sign1: u32 = unsafe { ::core::mem::transmute(sign1) };
-            sign1 as u64
-        });
-        __bindgen_bitfield_unit.set(1usize, 15u8, {
-            let unused: u32 = unsafe { ::core::mem::transmute(unused) };
-            unused as u64
-        });
-        __bindgen_bitfield_unit.set(16usize, 1u8, {
-            let sign2: u32 = unsafe { ::core::mem::transmute(sign2) };
-            sign2 as u64
-        });
-        __bindgen_bitfield_unit.set(17usize, 14u8, {
-            let exponent: u32 = unsafe { ::core::mem::transmute(exponent) };
-            exponent as u64
-        });
-        __bindgen_bitfield_unit.set(31usize, 1u8, {
-            let j: u32 = unsafe { ::core::mem::transmute(j) };
-            j as u64
-        });
-        __bindgen_bitfield_unit.set(32usize, 31u8, {
-            let mantissa1: u32 = unsafe { ::core::mem::transmute(mantissa1) };
-            mantissa1 as u64
-        });
-        __bindgen_bitfield_unit.set(64usize, 32u8, {
-            let mantissa0: u32 = unsafe { ::core::mem::transmute(mantissa0) };
-            mantissa0 as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-impl user_fpregs {
-    #[inline]
-    pub fn fpsr(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 32u8) as u32) }
-    }
-    #[inline]
-    pub fn set_fpsr(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(0usize, 32u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn fpcr(&self) -> ::core::ffi::c_uint {
-        unsafe { ::core::mem::transmute(self._bitfield_1.get(32usize, 32u8) as u32) }
-    }
-    #[inline]
-    pub fn set_fpcr(&mut self, val: ::core::ffi::c_uint) {
-        unsafe {
-            let val: u32 = ::core::mem::transmute(val);
-            self._bitfield_1.set(32usize, 32u8, val as u64)
-        }
-    }
-    #[inline]
-    pub fn new_bitfield_1(
-        fpsr: ::core::ffi::c_uint,
-        fpcr: ::core::ffi::c_uint,
-    ) -> __BindgenBitfieldUnit<[u8; 8usize]> {
-        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 8usize]> = Default::default();
-        __bindgen_bitfield_unit.set(0usize, 32u8, {
-            let fpsr: u32 = unsafe { ::core::mem::transmute(fpsr) };
-            fpsr as u64
-        });
-        __bindgen_bitfield_unit.set(32usize, 32u8, {
-            let fpcr: u32 = unsafe { ::core::mem::transmute(fpcr) };
-            fpcr as u64
-        });
-        __bindgen_bitfield_unit
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct user_regs {
-    pub uregs: [::core::ffi::c_ulong; 18usize],
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct user_vfp {
-    pub fpregs: [::core::ffi::c_ulonglong; 32usize],
-    pub fpscr: ::core::ffi::c_ulong,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct user_vfp_exc {
-    pub fpexc: ::core::ffi::c_ulong,
-    pub fpinst: ::core::ffi::c_ulong,
-    pub fpinst2: ::core::ffi::c_ulong,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct user {
-    pub regs: user_regs,
-    pub u_fpvalid: ::core::ffi::c_int,
-    pub u_tsize: ::core::ffi::c_ulong,
-    pub u_dsize: ::core::ffi::c_ulong,
-    pub u_ssize: ::core::ffi::c_ulong,
-    pub start_code: ::core::ffi::c_ulong,
-    pub start_stack: ::core::ffi::c_ulong,
-    pub signal: ::core::ffi::c_long,
-    pub reserved: ::core::ffi::c_int,
-    pub u_ar0: *mut user_regs,
-    pub magic: ::core::ffi::c_ulong,
-    pub u_comm: [::core::ffi::c_char; 32usize],
-    pub u_debugreg: [::core::ffi::c_int; 8usize],
-    pub u_fp: user_fpregs,
-    pub u_fp0: *mut user_fpregs,
-}
-pub const REG_R0: _bindgen_ty_1 = 0;
-pub const REG_R1: _bindgen_ty_1 = 1;
-pub const REG_R2: _bindgen_ty_1 = 2;
-pub const REG_R3: _bindgen_ty_1 = 3;
-pub const REG_R4: _bindgen_ty_1 = 4;
-pub const REG_R5: _bindgen_ty_1 = 5;
-pub const REG_R6: _bindgen_ty_1 = 6;
-pub const REG_R7: _bindgen_ty_1 = 7;
-pub const REG_R8: _bindgen_ty_1 = 8;
-pub const REG_R9: _bindgen_ty_1 = 9;
-pub const REG_R10: _bindgen_ty_1 = 10;
-pub const REG_R11: _bindgen_ty_1 = 11;
-pub const REG_R12: _bindgen_ty_1 = 12;
-pub const REG_R13: _bindgen_ty_1 = 13;
-pub const REG_R14: _bindgen_ty_1 = 14;
-pub const REG_R15: _bindgen_ty_1 = 15;
-pub type _bindgen_ty_1 = ::core::ffi::c_uint;
-pub type greg_t = ::core::ffi::c_int;
-pub type gregset_t = [greg_t; 18usize];
-pub type fpregset_t = user_fpregs;
+pub type greg_t = ::core::ffi::c_ulong;
+pub type gregset_t = [greg_t; 34usize];
+pub type fpregset_t = user_fpsimd_struct;
 pub type mcontext_t = sigcontext;
 #[repr(C)]
-#[repr(align(8))]
+#[repr(align(16))]
 #[derive(Copy, Clone)]
 pub struct ucontext {
     pub uc_flags: ::core::ffi::c_ulong,
     pub uc_link: *mut ucontext,
     pub uc_stack: stack_t,
-    pub uc_mcontext: mcontext_t,
     pub __bindgen_anon_1: ucontext__bindgen_ty_1,
     pub __padding: [::core::ffi::c_char; 120usize],
-    pub uc_regspace: [::core::ffi::c_ulong; 128usize],
+    pub __bindgen_padding_0: u64,
+    pub uc_mcontext: mcontext_t,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ucontext__bindgen_ty_1 {
-    pub __bindgen_anon_1: ucontext__bindgen_ty_1__bindgen_ty_1,
-    pub uc_sigmask64: sigset64_t,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct ucontext__bindgen_ty_1__bindgen_ty_1 {
     pub uc_sigmask: sigset_t,
-    pub __padding_rt_sigset: u32,
+    pub uc_sigmask64: sigset64_t,
 }
 pub type ucontext_t = ucontext;
 extern "C" {
@@ -2460,7 +2238,7 @@ pub type fd_mask = ::core::ffi::c_ulong;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct fd_set {
-    pub fds_bits: [fd_mask; 32usize],
+    pub fds_bits: [fd_mask; 16usize],
 }
 extern "C" {
     pub fn __FD_CLR_chk(arg1: ::core::ffi::c_int, arg2: *mut fd_set, arg3: usize);
@@ -2477,7 +2255,7 @@ extern "C" {
 }
 extern "C" {
     pub fn select(
-        __max_fd_plus_one: ::core::ffi::c_int,
+        __fd_count: ::core::ffi::c_int,
         __read_fds: *mut fd_set,
         __write_fds: *mut fd_set,
         __exception_fds: *mut fd_set,
@@ -2486,7 +2264,7 @@ extern "C" {
 }
 extern "C" {
     pub fn pselect(
-        __max_fd_plus_one: ::core::ffi::c_int,
+        __fd_count: ::core::ffi::c_int,
         __read_fds: *mut fd_set,
         __write_fds: *mut fd_set,
         __exception_fds: *mut fd_set,
@@ -2496,7 +2274,7 @@ extern "C" {
 }
 extern "C" {
     pub fn pselect64(
-        __max_fd_plus_one: ::core::ffi::c_int,
+        __fd_count: ::core::ffi::c_int,
         __read_fds: *mut fd_set,
         __write_fds: *mut fd_set,
         __exception_fds: *mut fd_set,
@@ -2584,16 +2362,10 @@ extern "C" {
     pub fn localtime_r(__t: *const time_t, __tm: *mut tm) -> *mut tm;
 }
 extern "C" {
-    pub fn timelocal(__tm: *mut tm) -> time_t;
-}
-extern "C" {
     pub fn gmtime(__t: *const time_t) -> *mut tm;
 }
 extern "C" {
     pub fn gmtime_r(__t: *const time_t, __tm: *mut tm) -> *mut tm;
-}
-extern "C" {
-    pub fn timegm(__tm: *mut tm) -> time_t;
 }
 extern "C" {
     pub fn strptime(
@@ -2679,16 +2451,19 @@ extern "C" {
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn timer_gettime(_timer: timer_t, __ts: *mut itimerspec) -> ::core::ffi::c_int;
+    pub fn timer_gettime(__timer: timer_t, __ts: *mut itimerspec) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn timer_getoverrun(__timer: timer_t) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn timespec_get(__ts: *mut timespec, __base: ::core::ffi::c_int) -> ::core::ffi::c_int;
+    pub fn timelocal(__tm: *mut tm) -> time_t;
 }
 extern "C" {
-    pub fn timespec_getres(__ts: *mut timespec, __base: ::core::ffi::c_int) -> ::core::ffi::c_int;
+    pub fn timegm(__tm: *mut tm) -> time_t;
+}
+extern "C" {
+    pub fn timespec_get(__ts: *mut timespec, __base: ::core::ffi::c_int) -> ::core::ffi::c_int;
 }
 pub type gchar = ::core::ffi::c_char;
 pub type gshort = ::core::ffi::c_short;
@@ -2906,7 +2681,7 @@ extern "C" {
     pub fn strncasecmp(
         __s1: *const ::core::ffi::c_char,
         __s2: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
@@ -2922,14 +2697,14 @@ extern "C" {
         __dst: *mut ::core::ffi::c_void,
         __src: *const ::core::ffi::c_void,
         __stop_char: ::core::ffi::c_int,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn memchr(
         __s: *const ::core::ffi::c_void,
         __ch: ::core::ffi::c_int,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
@@ -2943,35 +2718,28 @@ extern "C" {
     pub fn memcmp(
         __lhs: *const ::core::ffi::c_void,
         __rhs: *const ::core::ffi::c_void,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn memcpy(
         arg1: *mut ::core::ffi::c_void,
         arg2: *const ::core::ffi::c_void,
-        arg3: ::core::ffi::c_uint,
+        arg3: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn memmove(
         __dst: *mut ::core::ffi::c_void,
         __src: *const ::core::ffi::c_void,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn memset(
         __dst: *mut ::core::ffi::c_void,
         __ch: ::core::ffi::c_int,
-        __n: ::core::ffi::c_uint,
-    ) -> *mut ::core::ffi::c_void;
-}
-extern "C" {
-    pub fn memset_explicit(
-        __dst: *mut ::core::ffi::c_void,
-        __ch: ::core::ffi::c_int,
-        __n: usize,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
@@ -3009,7 +2777,7 @@ extern "C" {
     ) -> *mut ::core::ffi::c_char;
 }
 extern "C" {
-    pub fn strlen(__s: *const ::core::ffi::c_char) -> ::core::ffi::c_uint;
+    pub fn strlen(__s: *const ::core::ffi::c_char) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn __strlen_chk(__s: *const ::core::ffi::c_char, __n: usize) -> usize;
@@ -3087,55 +2855,55 @@ extern "C" {
     pub fn strncat(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_char;
 }
 extern "C" {
     pub fn strndup(
         __s: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_char;
 }
 extern "C" {
     pub fn strncmp(
         __lhs: *const ::core::ffi::c_char,
         __rhs: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn stpncpy(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_char;
 }
 extern "C" {
     pub fn strncpy(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
+        __n: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_char;
 }
 extern "C" {
     pub fn strlcat(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
-    ) -> ::core::ffi::c_uint;
+        __n: ::core::ffi::c_ulong,
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn strlcpy(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
-    ) -> ::core::ffi::c_uint;
+        __n: ::core::ffi::c_ulong,
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn strcspn(
         __s: *const ::core::ffi::c_char,
         __reject: *const ::core::ffi::c_char,
-    ) -> ::core::ffi::c_uint;
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn strpbrk(
@@ -3153,7 +2921,7 @@ extern "C" {
     pub fn strspn(
         __s: *const ::core::ffi::c_char,
         __accept: *const ::core::ffi::c_char,
-    ) -> ::core::ffi::c_uint;
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn strsignal(__signal: ::core::ffi::c_int) -> *mut ::core::ffi::c_char;
@@ -3168,8 +2936,8 @@ extern "C" {
     pub fn strxfrm(
         __dst: *mut ::core::ffi::c_char,
         __src: *const ::core::ffi::c_char,
-        __n: ::core::ffi::c_uint,
-    ) -> ::core::ffi::c_uint;
+        __n: ::core::ffi::c_ulong,
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn strcoll_l(
@@ -3587,8 +3355,8 @@ extern "C" {
 extern "C" {
     pub fn _frida_g_atomic_int_exchange_and_add(atomic: *mut gint, val: gint) -> gint;
 }
-pub type __gnuc_va_list = u32;
-pub type va_list = u32;
+pub type __gnuc_va_list = [u64; 4usize];
+pub type va_list = [u64; 4usize];
 pub type GQuark = guint32;
 extern "C" {
     pub fn _frida_g_quark_try_string(string: *const gchar) -> GQuark;
@@ -3884,10 +3652,10 @@ extern "C" {
 extern "C" {
     pub fn fread(
         __buf: *mut ::core::ffi::c_void,
-        __size: ::core::ffi::c_uint,
-        __count: ::core::ffi::c_uint,
+        __size: ::core::ffi::c_ulong,
+        __count: ::core::ffi::c_ulong,
         __fp: *mut FILE,
-    ) -> ::core::ffi::c_uint;
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn fscanf(__fp: *mut FILE, __fmt: *const ::core::ffi::c_char, ...) -> ::core::ffi::c_int;
@@ -3895,10 +3663,10 @@ extern "C" {
 extern "C" {
     pub fn fwrite(
         __buf: *const ::core::ffi::c_void,
-        __size: ::core::ffi::c_uint,
-        __count: ::core::ffi::c_uint,
+        __size: ::core::ffi::c_ulong,
+        __count: ::core::ffi::c_ulong,
         __fp: *mut FILE,
-    ) -> ::core::ffi::c_uint;
+    ) -> ::core::ffi::c_ulong;
 }
 extern "C" {
     pub fn getc(__fp: *mut FILE) -> ::core::ffi::c_int;
@@ -3970,11 +3738,11 @@ extern "C" {
     pub fn vfprintf(
         __fp: *mut FILE,
         __fmt: *const ::core::ffi::c_char,
-        __args: u32,
+        __args: [u64; 4usize],
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn vprintf(__fp: *const ::core::ffi::c_char, __args: u32) -> ::core::ffi::c_int;
+    pub fn vprintf(__fp: *const ::core::ffi::c_char, __args: [u64; 4usize]) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn dprintf(
@@ -4001,7 +3769,7 @@ extern "C" {
     pub fn vsprintf(
         __s: *mut ::core::ffi::c_char,
         __fmt: *const ::core::ffi::c_char,
-        __args: u32,
+        __args: [u64; 4usize],
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
@@ -4104,7 +3872,7 @@ extern "C" {
 extern "C" {
     pub fn snprintf(
         __buf: *mut ::core::ffi::c_char,
-        __size: ::core::ffi::c_uint,
+        __size: ::core::ffi::c_ulong,
         __fmt: *const ::core::ffi::c_char,
         ...
     ) -> ::core::ffi::c_int;
@@ -4113,25 +3881,25 @@ extern "C" {
     pub fn vfscanf(
         __fp: *mut FILE,
         __fmt: *const ::core::ffi::c_char,
-        __args: u32,
+        __args: [u64; 4usize],
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn vscanf(__fmt: *const ::core::ffi::c_char, __args: u32) -> ::core::ffi::c_int;
+    pub fn vscanf(__fmt: *const ::core::ffi::c_char, __args: [u64; 4usize]) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn vsnprintf(
         __buf: *mut ::core::ffi::c_char,
-        __size: ::core::ffi::c_uint,
+        __size: ::core::ffi::c_ulong,
         __fmt: *const ::core::ffi::c_char,
-        __args: u32,
+        __args: [u64; 4usize],
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn vsscanf(
         __s: *const ::core::ffi::c_char,
         __fmt: *const ::core::ffi::c_char,
-        __args: u32,
+        __args: [u64; 4usize],
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
@@ -4225,18 +3993,18 @@ extern "C" {
     pub fn fileno_unlocked(__fp: *mut FILE) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn malloc(__byte_count: ::core::ffi::c_uint) -> *mut ::core::ffi::c_void;
+    pub fn malloc(__byte_count: ::core::ffi::c_ulong) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn calloc(
-        __item_count: ::core::ffi::c_uint,
-        __item_size: ::core::ffi::c_uint,
+        __item_count: ::core::ffi::c_ulong,
+        __item_size: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn realloc(
         __ptr: *mut ::core::ffi::c_void,
-        __byte_count: ::core::ffi::c_uint,
+        __byte_count: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
@@ -4251,8 +4019,8 @@ extern "C" {
 }
 extern "C" {
     pub fn memalign(
-        __alignment: ::core::ffi::c_uint,
-        __byte_count: ::core::ffi::c_uint,
+        __alignment: ::core::ffi::c_ulong,
+        __byte_count: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
@@ -4274,20 +4042,6 @@ pub struct mallinfo {
 }
 extern "C" {
     pub fn mallinfo() -> mallinfo;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct mallinfo2 {
-    pub arena: usize,
-    pub ordblks: usize,
-    pub smblks: usize,
-    pub hblks: usize,
-    pub hblkhd: usize,
-    pub usmblks: usize,
-    pub fsmblks: usize,
-    pub uordblks: usize,
-    pub fordblks: usize,
-    pub keepcost: usize,
 }
 extern "C" {
     pub fn malloc_info(__must_be_zero: ::core::ffi::c_int, __fp: *mut FILE) -> ::core::ffi::c_int;
@@ -4458,13 +4212,19 @@ extern "C" {
 }
 extern "C" {
     pub fn aligned_alloc(
-        __alignment: ::core::ffi::c_uint,
-        __size: ::core::ffi::c_uint,
+        __alignment: ::core::ffi::c_ulong,
+        __size: ::core::ffi::c_ulong,
     ) -> *mut ::core::ffi::c_void;
 }
 extern "C" {
     pub fn strtod(__s: *const ::core::ffi::c_char, __end_ptr: *mut *mut ::core::ffi::c_char)
         -> f64;
+}
+extern "C" {
+    pub fn strtold(
+        __s: *const ::core::ffi::c_char,
+        __end_ptr: *mut *mut ::core::ffi::c_char,
+    ) -> u128;
 }
 extern "C" {
     pub fn strtoul_l(
@@ -4707,7 +4467,7 @@ extern "C" {
         __s: *const ::core::ffi::c_char,
         __end_ptr: *mut *mut ::core::ffi::c_char,
         __l: locale_t,
-    ) -> f64;
+    ) -> u128;
 }
 extern "C" {
     pub fn strtod_l(
@@ -6427,7 +6187,7 @@ extern "C" {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct dirent {
-    pub d_ino: u64,
+    pub d_ino: ino_t,
     pub d_off: off64_t,
     pub d_reclen: ::core::ffi::c_ushort,
     pub d_type: ::core::ffi::c_uchar,
@@ -6436,7 +6196,7 @@ pub struct dirent {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct dirent64 {
-    pub d_ino: u64,
+    pub d_ino: ino_t,
     pub d_off: off64_t,
     pub d_reclen: ::core::ffi::c_ushort,
     pub d_type: ::core::ffi::c_uchar,
@@ -13306,9 +13066,9 @@ extern "C" {
         line: ::core::ffi::c_int,
         func: *const ::core::ffi::c_char,
         expr: *const ::core::ffi::c_char,
-        arg1: f64,
+        arg1: u128,
         cmp: *const ::core::ffi::c_char,
-        arg2: f64,
+        arg2: u128,
         numtype: ::core::ffi::c_char,
     );
 }
@@ -13372,7 +13132,7 @@ pub struct GTestLogMsg {
     pub n_strings: guint,
     pub strings: *mut *mut gchar,
     pub n_nums: guint,
-    pub nums: *mut f64,
+    pub nums: *mut u128,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -14420,16 +14180,16 @@ extern "C" {
 extern "C" {
     pub fn sched_rr_get_interval(__pid: pid_t, __quantum: *mut timespec) -> ::core::ffi::c_int;
 }
-pub const PTHREAD_MUTEX_NORMAL: _bindgen_ty_2 = 0;
-pub const PTHREAD_MUTEX_RECURSIVE: _bindgen_ty_2 = 1;
-pub const PTHREAD_MUTEX_ERRORCHECK: _bindgen_ty_2 = 2;
-pub const PTHREAD_MUTEX_ERRORCHECK_NP: _bindgen_ty_2 = 2;
-pub const PTHREAD_MUTEX_RECURSIVE_NP: _bindgen_ty_2 = 1;
-pub const PTHREAD_MUTEX_DEFAULT: _bindgen_ty_2 = 0;
+pub const PTHREAD_MUTEX_NORMAL: _bindgen_ty_1 = 0;
+pub const PTHREAD_MUTEX_RECURSIVE: _bindgen_ty_1 = 1;
+pub const PTHREAD_MUTEX_ERRORCHECK: _bindgen_ty_1 = 2;
+pub const PTHREAD_MUTEX_ERRORCHECK_NP: _bindgen_ty_1 = 2;
+pub const PTHREAD_MUTEX_RECURSIVE_NP: _bindgen_ty_1 = 1;
+pub const PTHREAD_MUTEX_DEFAULT: _bindgen_ty_1 = 0;
+pub type _bindgen_ty_1 = ::core::ffi::c_uint;
+pub const PTHREAD_RWLOCK_PREFER_READER_NP: _bindgen_ty_2 = 0;
+pub const PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP: _bindgen_ty_2 = 1;
 pub type _bindgen_ty_2 = ::core::ffi::c_uint;
-pub const PTHREAD_RWLOCK_PREFER_READER_NP: _bindgen_ty_3 = 0;
-pub const PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP: _bindgen_ty_3 = 1;
-pub type _bindgen_ty_3 = ::core::ffi::c_uint;
 extern "C" {
     pub fn pthread_atfork(
         __prepare: ::core::option::Option<unsafe extern "C" fn()>,
@@ -14643,6 +14403,13 @@ extern "C" {
     pub fn pthread_getcpuclockid(
         __pthread: pthread_t,
         __clock: *mut clockid_t,
+    ) -> ::core::ffi::c_int;
+}
+extern "C" {
+    pub fn pthread_getschedparam(
+        __pthread: pthread_t,
+        __policy: *mut ::core::ffi::c_int,
+        __param: *mut sched_param,
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
@@ -14911,13 +14678,6 @@ extern "C" {
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn pthread_getschedparam(
-        __pthread: pthread_t,
-        __policy: *mut ::core::ffi::c_int,
-        __param: *mut sched_param,
-    ) -> ::core::ffi::c_int;
-}
-extern "C" {
     pub fn pthread_setschedprio(
         __pthread: pthread_t,
         __priority: ::core::ffi::c_int,
@@ -14929,18 +14689,19 @@ extern "C" {
         __value: *const ::core::ffi::c_void,
     ) -> ::core::ffi::c_int;
 }
+pub type __pthread_cleanup_func_t =
+    ::core::option::Option<unsafe extern "C" fn(arg1: *mut ::core::ffi::c_void)>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_cleanup_t {
     pub __cleanup_prev: *mut __pthread_cleanup_t,
-    pub __cleanup_routine:
-        ::core::option::Option<unsafe extern "C" fn(arg1: *mut ::core::ffi::c_void)>,
+    pub __cleanup_routine: __pthread_cleanup_func_t,
     pub __cleanup_arg: *mut ::core::ffi::c_void,
 }
 extern "C" {
     pub fn __pthread_cleanup_push(
         c: *mut __pthread_cleanup_t,
-        arg1: ::core::option::Option<unsafe extern "C" fn(arg1: *mut ::core::ffi::c_void)>,
+        arg1: __pthread_cleanup_func_t,
         arg2: *mut ::core::ffi::c_void,
     );
 }
@@ -18115,7 +17876,7 @@ pub struct _GParamSpecString {
     pub substitutor: gchar,
     pub _bitfield_align_1: [u8; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize]>,
-    pub __bindgen_padding_0: u16,
+    pub __bindgen_padding_0: [u16; 3usize],
 }
 impl _GParamSpecString {
     #[inline]
@@ -22871,7 +22632,7 @@ extern "C" {
     pub fn usleep(__microseconds: useconds_t) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn gethostname(_buf: *mut ::core::ffi::c_char, __buf_size: usize) -> ::core::ffi::c_int;
+    pub fn gethostname(__buf: *mut ::core::ffi::c_char, __buf_size: usize) -> ::core::ffi::c_int;
 }
 extern "C" {
     pub fn sethostname(__name: *const ::core::ffi::c_char, __n: usize) -> ::core::ffi::c_int;
@@ -22911,13 +22672,6 @@ extern "C" {
     ) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn cacheflush(
-        __addr: ::core::ffi::c_long,
-        __nbytes: ::core::ffi::c_long,
-        __cache: ::core::ffi::c_long,
-    ) -> ::core::ffi::c_int;
-}
-extern "C" {
     pub fn tcgetpgrp(__fd: ::core::ffi::c_int) -> pid_t;
 }
 extern "C" {
@@ -22930,28 +22684,11 @@ extern "C" {
     pub fn setdomainname(__name: *const ::core::ffi::c_char, __n: usize) -> ::core::ffi::c_int;
 }
 extern "C" {
-    pub fn copy_file_range(
-        __fd_in: ::core::ffi::c_int,
-        __off_in: *mut off64_t,
-        __fd_out: ::core::ffi::c_int,
-        __off_out: *mut off64_t,
-        __length: usize,
-        __flags: ::core::ffi::c_uint,
-    ) -> isize;
-}
-extern "C" {
     pub fn swab(
         __src: *const ::core::ffi::c_void,
         __dst: *mut ::core::ffi::c_void,
         __byte_count: isize,
     );
-}
-extern "C" {
-    pub fn close_range(
-        __min_fd: ::core::ffi::c_uint,
-        __max_fd: ::core::ffi::c_uint,
-        __flags: ::core::ffi::c_int,
-    ) -> ::core::ffi::c_int;
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -37169,7 +36906,7 @@ pub type GumArm64CpuContext = _GumArm64CpuContext;
 pub type GumArm64VectorReg = _GumArm64VectorReg;
 pub type GumMipsCpuContext = _GumMipsCpuContext;
 pub type GumRelocationScenario = guint;
-pub type GumCpuContext = GumArmCpuContext;
+pub type GumCpuContext = GumArm64CpuContext;
 pub const _GumOS_GUM_OS_WINDOWS: _GumOS = 0;
 pub const _GumOS_GUM_OS_MACOS: _GumOS = 1;
 pub const _GumOS_GUM_OS_LINUX: _GumOS = 2;
@@ -41111,8 +40848,8 @@ extern "C" {
         data_destroy: GDestroyNotify,
     ) -> *mut GumEventSink;
 }
-pub type sigjmp_buf = [::core::ffi::c_long; 65usize];
-pub type jmp_buf = [::core::ffi::c_long; 64usize];
+pub type sigjmp_buf = [::core::ffi::c_long; 33usize];
+pub type jmp_buf = [::core::ffi::c_long; 32usize];
 extern "C" {
     pub fn _setjmp(__env: *mut ::core::ffi::c_long) -> ::core::ffi::c_int;
 }
@@ -62382,3 +62119,4 @@ extern "C" {
 extern "C" {
     pub fn gum_inspector_server_post_message(self_: *mut GumInspectorServer, message: *const gchar);
 }
+pub type __uint128_t = u128;
