@@ -26,7 +26,7 @@ impl Interceptor{
     pub fn end_transaction(&self) {
         unsafe { frida_gumjs_rs_sys::gum_interceptor_end_transaction(self.interceptor) };
     }
-    pub fn revert(&mut self, function: NativePointer) {
+    pub fn revert(&self, function: NativePointer) {
         unsafe {
             frida_gumjs_rs_sys::gum_interceptor_revert(self.interceptor, function.0);
         }
